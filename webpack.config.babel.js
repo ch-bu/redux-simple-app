@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 module.exports = {
   entry: './app/scripts/main.jsx',
@@ -13,7 +14,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node-modules/,
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
         }
       }
     ]
@@ -25,6 +26,9 @@ module.exports = {
       include: /\.min\.js$/,
       minimize: true,
       comments: false
-    })
+    }),
+    new CopyWebpackPlugin([
+      {from: './app/index.html', to: './dist/index.html'}
+    ])
   ]
 };
