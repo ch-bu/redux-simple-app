@@ -1,6 +1,46 @@
 <html>
   <head>
     <title>Redux simple example</title>
+    <style>
+
+      body {
+        margin: 0;
+      }
+
+      #input-box {
+        width: 80%;
+        margin: 0 auto;
+        margin: 20px;
+      }
+
+      #todo-flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+      }
+
+      #todo-flex-container div {
+        position: relative;
+        border-radius: 4px;
+        background-color: #6495ED;
+        min-width: 15%;
+        max-width: 40%;
+        min-height: 50px;
+        margin: 5px;
+        padding: 5px;
+        box-shadow: 12px 15px 20px 0 rgba(46,61,73,.15);
+      }
+
+      #todo-flex-container a {
+        position: absolute;
+        top: 0;
+        right: 4px;
+        text-decoration: none;
+        color: #fff;
+      }
+
+    </style>
   </head>
   <body>
     <main id="container"></main>

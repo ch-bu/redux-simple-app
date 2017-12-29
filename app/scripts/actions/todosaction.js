@@ -1,20 +1,13 @@
-export function getTweets() {
-  return {
-    type: "GET_TWEETS",
-    payload: [1, 2, 3],
-  }
-}
-
-export function addToDo(number) {
+export function addToDo(todo) {
   return {
     type: "ADD_TODO",
-    payload: number,
+    payload: todo,
   }
 }
 
-export function removeToDo(number) {
+export function removeToDo(id) {
   return {
     type: "REMOVE_TODO",
-    payload: number
+    payload: id
   }
 }

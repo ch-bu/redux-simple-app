@@ -7,35 +7,44 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    // Bind this to elements
     this.addTodo = this.addTodo.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
   }
 
   render() {
-    console.log(this.props);
-
-    let todos = this.props.todos.map((todo) => {
-      return <li>{todo}</li>;
+    // Generate the todos
+    let todos = this.props.todos.map((todo, key) => {
+      return <div id={key}>
+          <p>{todo}</p>
+          <a href="#" onClick={this.removeToDo} className="x-cross">x</a>
+        </div>;
     });
 
     return (
       <div>
-        <button onClick={this.addTodo}>Add todo</button>
-        <button onClick={this.removeToDo}>Remove todo</button>
-        <ul>
+        <div>
+          <input type="text" id="input-box" name="myToDo"
+            onKeyDown={this.addTodo}></input>
+        </div>
+        <div id="todo-flex-container">
           {todos}
-        </ul>
+        </div>
       </div>
     );
   }
 
-  addTodo() {
-    this.props.dispatch(addToDo(5));
+  addTodo(e) {
+    if (e.key == 'Enter') {
+      this.props.dispatch(addToDo(e.target.value));
+
+      // Empty value
+      e.target.value = "";
+    }
   }
 
-  removeToDo() {
-    // console.log(removeToDo);
-    this.props.dispatch(removeToDo(5));
+  removeToDo(e) {
+    this.props.dispatch(removeToDo(e.target.parentElement.id));
   }
 }
 
