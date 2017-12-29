@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <input type="text" id="input-box" name="myToDo"
+          <input tabindex="1" type="text" id="input-box" name="myToDo"
             onKeyDown={this.addTodo}></input>
         </div>
         <div id="todo-flex-container">

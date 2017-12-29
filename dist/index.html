@@ -1,16 +1,25 @@
 <html>
   <head>
     <title>Redux simple example</title>
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
     <style>
 
       body {
         margin: 0;
+        background: linear-gradient(to bottom right, #ed6495, #7864ed);
+        font-family: 'Berkshire Swash', cursive;
       }
 
       #input-box {
-        width: 80%;
-        margin: 0 auto;
-        margin: 20px;
+        width: 50%;
+        margin: 30px auto;
+        display: block;
+        padding: 5px;
+        font-size: 2rem;
+        border-radius: 4px;
+        border: none;
+        outline-width: 0;
+        font-family: 'Berkshire Swash', cursive;
       }
 
       #todo-flex-container {
@@ -23,21 +32,26 @@
       #todo-flex-container div {
         position: relative;
         border-radius: 4px;
-        background-color: #6495ED;
+        background-color: #7864ed;
         min-width: 15%;
         max-width: 40%;
         min-height: 50px;
         margin: 5px;
         padding: 5px;
-        box-shadow: 12px 15px 20px 0 rgba(46,61,73,.15);
+      }
+
+      #todo-flex-container div p {
+        font-size: 1.5rem;
+        color: #fff;
       }
 
       #todo-flex-container a {
         position: absolute;
-        top: 0;
+        top: -4px;
         right: 4px;
         text-decoration: none;
         color: #fff;
+        font-size: 1.6rem;
       }
 
     </style>
