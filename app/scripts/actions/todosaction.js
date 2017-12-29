@@ -11,3 +11,10 @@ export function addToDo(number) {
     payload: number,
   }
 }
+
+export function removeToDo(number) {
+  return {
+    type: "REMOVE_TODO",
+    payload: number
+  }
+}
