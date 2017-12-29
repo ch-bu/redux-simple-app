@@ -1,7 +1,7 @@
-export default function reducer(state={}, action) {
+export default function reducer(state={todos: []}, action) {
   switch (action.type) {
-    case "GET_TWEETS": {
-      return {...state, todos: action.payload}
+    case "ADD_TODO": {
+      return Object.assign({}, state, {todos: state.todos.concat(action.payload)});
     }
   }
   return state;

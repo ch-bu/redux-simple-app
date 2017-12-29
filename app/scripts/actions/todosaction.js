@@ -4,3 +4,10 @@ export function getTweets() {
     payload: [1, 2, 3],
   }
 }
+
+export function addToDo(number) {
+  return {
+    type: "ADD_TODO",
+    payload: number,
+  }
+}
