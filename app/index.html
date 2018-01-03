@@ -10,6 +10,11 @@
         font-family: 'Berkshire Swash', cursive;
       }
 
+      #container {
+        width: 80%;
+        margin: 0 auto;
+      }
+
       #input-box {
         width: 50%;
         margin: 30px auto;
@@ -26,17 +31,16 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-
+        justify-content: space-between;
       }
 
       #todo-flex-container div {
         position: relative;
         border-radius: 4px;
         background-color: #7864ed;
-        min-width: 15%;
-        max-width: 40%;
+        width: 45%;
         min-height: 50px;
-        margin: 5px;
+        margin: 1%;
         padding: 5px;
         cursor: pointer;
       }
