@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addToDo, removeToDo} from '../actions/todosaction';
+import {addSearchTerm} from '../actions/searchaction';
 
 
 class App extends React.Component {
@@ -21,11 +22,19 @@ class App extends React.Component {
         </div>;
     });
 
+    // Generate options for search_terms
+    let searchterms = this.props.searchterms.map((term) => {
+      return <option value={term}></option>;
+    })
+
     return (
       <div>
         <div>
           <input tabindex="1" type="text" id="input-box" name="myToDo"
-            onKeyDown={this.addTodo}></input>
+            onKeyDown={this.addTodo} list="searchterms"></input>
+          <datalist id="searchterms">
+            {searchterms}
+          </datalist>
         </div>
         <div id="todo-flex-container">
           {todos}
@@ -37,6 +46,9 @@ class App extends React.Component {
   addTodo(e) {
     if (e.key == 'Enter') {
       this.props.dispatch(addToDo(e.target.value));
+
+      // Add value to search terms
+      this.props.dispatch(addSearchTerm(e.target.value));
 
       // Empty value
       e.target.value = "";
@@ -50,7 +62,8 @@ class App extends React.Component {
 
 function mapStateToProps(store) {
   return {
-    todos: store.todos.todos
+    todos: store.todos.todos,
+    searchterms: store.searchterms
   }
 }
 
