@@ -1,4 +1,7 @@
 import {createStore} from 'redux';
 import reducer from './reducers';
 
-export default createStore(reducer);
+const persistedState = localStorage.getItem('reduxState') ?
+  JSON.parse(localStorage.getItem('reduxState')): {};
+
+export default createStore(reducer, persistedState);
